@@ -1,28 +1,34 @@
-Name = input("Enter your Name: ").strip()
-Sub1 = float(input("Enter the marks of subject 1: "))
-while Sub1 < 0 or Sub1 > 100:
-    Sub1 = float(input("Enter the valid marks of subject 1: "))
-Sub2 = float(input("Enter the marks of subject 2: "))
-while Sub2 < 0 or Sub2 > 100:
-    Sub2 = float(input("Enter the valid marks of subject 2: "))
-Sub3 = float(input("Enter the marks of subject 3: "))
-while Sub3 < 0 or Sub3 > 100:
-    Sub3 = float(input("Enter the valid marks of subject 3: "))
-Avg = (Sub1 + Sub2 + Sub3)/3
-print(f"Name: {Name}")
-print(f"Average Marks: {Avg}")
+name = input("Enter your Name: ").strip()
+def get_marks(prompt):
+    while True:
+        try:
+            marks = float(input(f"Enter the valid marks of {prompt}: "))
+        except ValueError:
+            print("Invalid Number")
+        else:
+            if marks<0 or marks>100:
+                print("Marks are out of range")
+            else:
+                return marks
+    
+sub1 = get_marks("Subject 1")
+sub2 = get_marks("Subject 2")
+sub3 = get_marks("Subject 3")
+avg = (sub1 + sub2 + sub3)/3
+print(f"Name: {name}")
+print(f"Average Marks: {avg:.2f}")
 print("Your Grade:",end = " ")
-if Avg>=90:
+if avg>=90:
     print("A")
-elif Avg>=80:
+elif avg>=80:
     print("B")
-elif Avg>=70:
+elif avg>=70:
     print("C")
-elif Avg>=40:
+elif avg>=40:
     print("D")
 else:
     print("F")
-if Avg>=40:
+if avg>=40:
     print("Result: Pass")
 else:
     print("Result: Fail")
