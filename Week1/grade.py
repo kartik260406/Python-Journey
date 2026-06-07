@@ -18,20 +18,26 @@ def main():
     avg = (sub1 + sub2 + sub3)/3
     print(f"Name: {name}")
     print(f"Average Marks: {avg:.2f}")
-    print("Your Grade:",end = " ")
-    if avg>=90:
-        print("A")
-    elif avg>=80:
-        print("B")
-    elif avg>=70:
-        print("C")
-    elif avg>=40:
-        print("D")
-    else:
-        print("F")
-    if avg>=40:
-        print("Result: Pass")
-    else:
-        print("Result: Fail")
+    print("Your Grade:",calc_grade(avg))
+    print(calc_result(avg))
 
-main()
+def calc_grade(avg):
+    if avg>=90:
+        return "A"
+    elif avg>=80:
+        return "B"
+    elif avg>=70:
+        return "C"
+    elif avg>=40:
+        return "D"
+    else:
+        return "F"
+    
+def calc_result(avg):
+    if avg>=40:
+        return "Result: Pass"
+    else:
+        return "Result: Fail"
+
+if __name__== "__main__":
+    main()
