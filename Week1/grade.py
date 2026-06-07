@@ -1,3 +1,4 @@
+import statistics
 def get_marks(prompt):
     while True:
         try:
@@ -15,7 +16,7 @@ def main():
     sub1 = get_marks("Subject 1")
     sub2 = get_marks("Subject 2")
     sub3 = get_marks("Subject 3")
-    avg = (sub1 + sub2 + sub3)/3
+    avg = statistics.mean(sub1,sub2,sub3)
     print(f"Name: {name}")
     print(f"Average Marks: {avg:.2f}")
     print("Your Grade:",calc_grade(avg))
