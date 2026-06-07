@@ -22,7 +22,9 @@ def main():
     print(calc_result(avg))
 
 def calc_grade(avg):
-    if avg>=90:
+    if avg<0 or avg>100:
+        raise ValueError
+    elif avg>=90:
         return "A"
     elif avg>=80:
         return "B"
@@ -34,7 +36,9 @@ def calc_grade(avg):
         return "F"
     
 def calc_result(avg):
-    if avg>=40:
+    if avg<0 or avg>100:
+        raise ValueError
+    elif avg>=40:
         return "Result: Pass"
     else:
         return "Result: Fail"
