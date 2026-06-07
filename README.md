@@ -4,7 +4,7 @@ My complete Python and Data Science learning journey
 towards becoming an AI/ML Engineer.
 
 ## Structure
-- Week1 — Python basics (variables, loops, conditions)
+- Week1 — Python basics (variables, loops, conditions, libraries, exceptions, unit tests)
 - Week2 — coming soon
 
 ## Goal
