@@ -8,7 +8,7 @@ def main():
     if not sys.argv[1].endswith(".txt"):
         sys.exit("Wrong file")
     valid_input = ["view tasks","add task","mark task done"]
-    task = input("Enter the task from (view tasks,add task,mark test done): ").strip().lower()
+    task = input("Enter the task from (view tasks,add task,mark task done): ").strip().lower()
     file_path = Path(sys.argv[1])
     file_found = True
     if not file_path.is_file():
@@ -45,15 +45,15 @@ def add_task(file_found):
         work = "w"
     with open(sys.argv[1],work) as file:
         for task in args:
-            file.write(task)
+            file.write(task+"\n")
 
 def mark_task():
     all_task = view_task()
-    test_to_mark = input("Enter the task to mark: ")
+    task_to_mark = input("Enter the task to mark: ").strip()
     with open(sys.argv[1],"w") as file:
         for task in all_task:
             stripped = task.strip()
-            if stripped == test_to_mark:
+            if stripped == task_to_mark:
                 file.write("✅"+stripped+"\n")
             else:
                 file.write(task)
