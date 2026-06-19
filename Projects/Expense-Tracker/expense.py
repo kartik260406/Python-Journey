@@ -5,7 +5,7 @@ from pathlib import Path
 
 class Expense:
     def __init__(self,file,task):
-        valid_task = ["Add Expense","View Expenses","Delete Expense"]
+        valid_task = ["Add Expense","View Expenses","Delete Expense","Filter By Category","Total Expense On Category"]
         if task not in valid_task:
             raise ValueError("Wrong task Value")
         self.is_file_valid = valid(file,task)
@@ -19,6 +19,21 @@ class Expense:
             else:
                 for expense in data:
                     print(expense)
+        elif task == valid_task[3]:
+            category = input("Which Category data do you need? ")
+            expense = self.filter_by_category(category)
+            if expense == []:
+                print(f"No data found for {category}")
+            else:
+                for info in expense:
+                    print(info)
+        elif task == valid_task[4]:
+            category = input("Which Category expense do you need? ")
+            expense = self.total_by_category(category)
+            if expense == 0:
+                print(f"No expense found for {category}")
+            else:
+                print(f"{expense} amount in spend on {category} category")
         else:
             try:
                 amt = float(input("Enter the amount: "))
@@ -86,12 +101,27 @@ class Expense:
             for expense in data:
                 if expense != line:
                     writer.writerow(expense)
-        
+
+    def filter_by_category(self,category):
+        data = self.view
+        data_ = []
+        for info in data:
+            if info["category"] == category:
+                data_.append(info)
+        return data_
+    
+    def total_by_category(self,category):
+        data = self.filter_by_category(category)
+        total = 0
+        for info in data:
+            total += float(info["amount"])
+        return total
+
     @classmethod
     def get(cls):
         file = input("Enter the name of file: ").strip()
-        task = input("Which task you want to do?\n 1. Add Expense\n 2. View Expenses\n 3. Delete Expense\n Enter Choice: ").strip()
-        mapping = {"1":"Add Expense","2":"View Expenses","3":"Delete Expense"}
+        task = input("Which task you want to do?\n 1. Add Expense\n 2. View Expenses\n 3. Delete Expense\n 4. Filter By Category\n 5. Total Expense On Category\n Enter Choice: ").strip()
+        mapping = {"1":"Add Expense","2":"View Expenses","3":"Delete Expense","4": "Filter By Category","5": "Total Expense On Category"}
         if task not in mapping:
             raise ValueError("Invalid choice")
         return cls(file,mapping[task])
@@ -106,3 +136,9 @@ def valid(file,task):
         else:
             raise ValueError("File Not Found")
     return True
+
+def main():
+    Expense.get()
+
+if __name__ == "__main__":
+    main()
