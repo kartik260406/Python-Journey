@@ -103,6 +103,8 @@ class Expense:
                     writer.writerow(expense)
 
     def filter_by_category(self,category):
+        if not self.is_file_valid:
+            raise ValueError("File Not Found")
         data = self.view
         data_ = []
         for info in data:
@@ -111,6 +113,8 @@ class Expense:
         return data_
     
     def total_by_category(self,category):
+        if not self.is_file_valid:
+            raise ValueError("File Not Found")
         data = self.filter_by_category(category)
         total = 0
         for info in data:
