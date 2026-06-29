@@ -11,9 +11,10 @@
 - Variables, loops, conditionals
 - While loops and for loops
 - f-strings
+- Functions
 - Exceptions
 - Libraries
-- Test files and folder
+- Unit Testing with Pytest
 - Git and GitHub basics
 
 ## Tech used
