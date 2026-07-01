@@ -5,7 +5,7 @@
                 1 - properties(amount,view)
                 2 - methods(add,delete,filter by category,total expense on category)
                 3 - classmethod(get)
-             — File I/O to read and write in files using Dictwriter and Dictreader of CSV
+             — File I/O to read and write in files using Dictreader and Dictwriter of CSV
              — Regex used for validation of date by re.search
              — Error Handling used for amount validation & raise Value Error on required inputs
 
