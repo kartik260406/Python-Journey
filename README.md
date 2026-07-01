@@ -34,10 +34,5 @@ towards becoming an AI/ML Engineer.
 ## Goal
 AI/ML Engineer by 2027
 
-## Timeline
-- Month 1 (Phase 1) — Python foundation via CS50P ✅
-- Month 2 (Phase 2) — SQL + Pandas + NumPy 🔄
-- Month 3+ — Statistics, Math for ML, Data projects
-
 ## Tech used
 Python 3.12 · pytest · Git
